@@ -35,14 +35,16 @@ function renderTodoList(){
 
 function addTodo(){
   const inputElement = document.querySelector('.js-name-input');
-  const name = inputElement.value;
+  const name = inputElement.value.trim();
 
   const dateInputElement = document.querySelector('.js-due-date-input');
-  const dueDate = dateInputElement.value;
+  const dueDate = dateInputElement.value.trim();
 
-  if (name === '') {
+  if (name === '' || dueDate === '') {
     alert('Please enter a Todo name!');
-    return; // stop function if input is empty
+    inputElement.value = '';
+    dateInputElement.value = '';
+    return; // stop the function if both name or dueDate is empty
   }
   
   todoList.push({
