@@ -42,7 +42,8 @@ function addTodo(){
 
   if (name === '') {
     alert('Please enter a Todo name!');
-    return; // stop function if input is empty
+    inputElement.value = '';
+    return; // clear the wrong input
   }
   
   todoList.push({
